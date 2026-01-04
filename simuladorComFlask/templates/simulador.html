@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>SimuladorDeImpostoDeRenda</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form_box">
+            <h2 class="title">Simulador de Imposto de Renda</h2>
+
+            <form action="/simuladorIr" method="post" id="formulario">
+                <div class="input-group">
+                    <label for="" >Salário </label>
+                    <input type="number" id="salario" name="salario" placeholder="Salário" step="0.01" min="0" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="">Tipo de Segurado </label>
+                    <select name="tipoSegurado" id="tipoSegurado" onchange="verificacaoModalidades()">
+                        <option value="empregado" >Empregado</option>
+                        <option value="trabalhador avulso">Trabalhador Avulso</option>
+                        <option value="empregado doméstico">Empregado Doméstico</option>
+                        <option value="contribuinte individual">Contribuinte Individual</option>
+                        <option value="segurado facultativo">Segurado Facultativo</option>
+                        <option value="mei">MEI</option>
+                        <option value="segurado especial">Segurado Especial</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="">Dependentes </label>
+                    <input type="number" id="dependentes" name="dependentes" placeholder="Dependentes" min="0" required>
+                </div>
+                
+                <div class="input-group" id="pensao">
+                    <label for="">Pensão Alimentícia </label>
+                    <input type="number" name="pensao" id="pensao" placeholder="Pensão Alimentícia" step="0.01" min="0" required>
+                </div>
+
+                <div class="input-group" id="div_modalidade">
+                    <label for="">Modalidades</label>
+                    <select name="modalidade" id="modalidade">
+                        <option value="">Sem Modalidade</option>
+                        <!-- <option value="baixa renda">Baixa Renda</option>
+                        <option value="plano simplificado">Plano Simplificado</option>
+                        <option value="plano normal">Plano Normal</option> -->
+                    </select> 
+                </div>
+
+
+                <button type="submit">Calcular Imposto</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        function verificacaoModalidades() {
+            var segurado = document.querySelector("select#tipoSegurado").value
+            var seguradoModalidades = ["segurado especial", "segurado facultativo", "contribuinte individual", "mei"]
+            var modalidades = ["empregado", "empregado doméstico", "trabalhador avulso"]
+            var resposta = document.querySelector("div#div_modalidade")
+
+
+            if (seguradoModalidades.includes(segurado)) {
+                if (segurado === "contribuinte individual") {
+                    resposta.innerHTML = `  <label for="">Modalidades</label>
+                                            <select name="modalidade" id="modalidade">
+                                                <option value="plano simplificado">Plano Simplificado</option>
+                                                <option value="plano normal">Plano Normal</option>
+                                            </select>`
+                }
+
+                else if (segurado === "segurado facultativo") {
+                    resposta.innerHTML = `  <label for="">Modalidades</label>
+                                            <select name="modalidade" id="modalidade">
+                                                <option value="baixa renda">Baixa Renda</option>
+                                                <option value="plano simplificado">Plano Simplificado</option>
+                                                <option value="plano normal">Plano Normal</option>
+                                            </select>`
+                }
+
+                else if (segurado === "mei") {
+                    resposta.innerHTML = `  <label for="">Modalidades</label>
+                                            <select name="modalidade" id="modalidade">
+                                                <option value="baixa renda">Baixa Renda</option>
+                                            </select>`
+                }
+
+                else if (segurado === "segurado especial") {
+                    resposta.innerHTML = `  <label for="">Modalidades</label>
+                                            <select name="modalidade" id="modalidade">
+                                                <option value="contribuição obrigatória">Contribuição Obrigatória</option>
+                                                <option value="contribuição optativa">Contribuição Optativa</option>
+                                            </select>`
+                }
+            }
+
+            else if (modalidades.includes(segurado)) {
+                resposta.innerHTML = `<label for=""">Modalidades</label>
+                                      <select name="modalidade" id="modalidade">
+                                          <option value="">Sem Modalidade</option>
+                                      </select>`
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+::after,
+::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0c519b;
+}
+
+body, textarea {
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding-bottom: 10vh;
+    padding-top: 10vh;
+}
+
+.form_box {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 750px;
+}
+
+.form_box .title {
+    padding: 24px 32px;
+    font-size: 24px;
+    border-bottom: thin solid #ccc;
+}
+
+.form_box form {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    padding: 32px;
+}
+
+.form_box input,
+.form_box textarea {
+    width: calc(90% - 8px);
+    height: 48px;
+    border-radius: 8px;
+    border: thin solid #999;
+    padding-left: 8px;
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.form_box select {
+    width: calc(94% - 8px);
+    height: 48px;
+    border-radius: 8px;
+    border: thin solid #999;
+    padding-left: 8px;
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.form_box input:first-child {
+    margin-right: 16px;
+}
+
+.form_box input[name=salario] {
+    margin-right: 16px;
+}
+
+.form_box textarea {
+    width: 100%;
+    height: 180px;
+    padding: 16px;
+}
+
+.form_box button {
+    display: block;
+    border: none;
+    outline: none;
+    width: 180px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: #116ccd;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form_box button:hover {
+    background-color: #1156a0;
+}
+
+.title2 {
+    padding: 8px 32px;
+    font-size: 18px;
+}
+
+p {
+    padding: 0.1px 32px;
+    font-family: sans-serif;
+}
+
+.button {
+    display: inline;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: calc(51% - 8px);
+    margin-bottom: 16px;
+}
+
+.input-group label {
+    margin-bottom: 4px;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+
+#div_modalidade, #modalidade {
+    width: calc(98.7% - 8px);
+}
+
+.imposto_box {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+    width: calc(91% - 8px);
+    padding: 5px;
+}
+
+.imposto_renda {
+    display: flex;
+    flex-direction: column;
+    border: thin solid gray;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    
+}
+
+th {
+    text-align: left;
+}

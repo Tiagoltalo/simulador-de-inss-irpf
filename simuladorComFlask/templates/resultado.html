@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>SimuladorDeImpostoDeRenda</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form_box">
+            <h2 class="title">Simulador de Imposto de Renda</h2>
+            <div class="imposto_box">
+                <h3>Operação da Base de Cálculo do Imposto de Renda</h3>
+                <div class="imposto_renda">
+                   <table border="1" cellpadding="8" cellspacing="0">
+                        <tr>
+                            <th>Salário Bruto</th>
+                            <td>{{salario}}</td>
+                        </tr>
+                        <tr>
+                            <th>Alíquota INSS</th>
+                            <td>{{aliquotaINSS}}%</td>
+                        </tr>
+                        <tr>
+                            <th>Tipo do Segurado</th>
+                            <td>{{tipoSegurado}}</td>
+                        </tr>
+                        <tr>
+                            <th>Dedução do INSS</th>
+                            <td>{{contribuicaoINSS}}</td>
+                        </tr>
+                        <tr>
+                            <th>Desconto Simplificado</th>
+                            <td>{{descontoSimplificado}}</td>
+                        </tr>
+                        <tr>
+                            <th>Dedução por Dependente</th>
+                            <td>{{deducaoDependente}}</td>
+                        </tr>
+                        <tr>
+                            <th>Dedução Total dos Dependentes</th>
+                            <td>{{deducaoTotalDependente}}</td>
+                        </tr>
+                        <tr>
+                            <th>Dedução da Pensão Alimentícia</th>
+                            <td>{{pensao}}</td>
+                        </tr>
+                        <tr>
+                            <th>Resultado (Base de Cálculo)</th>
+                            <td>{{baseCalculo}}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3>Cálculo do Imposto de Renda</h3>
+                <div class="imposto_renda">
+                    <table border="1" cellpadding="8" cellspacing="0" margin-left="2">
+                        <tr>
+                            <th>Base de Cálculo</th>
+                            <td>{{baseCalculo}}</td>
+                        </tr>
+                        <tr>
+                            <th>Alíquota IR</th>
+                            <td>{{aliquotaIR}}%</td>
+                        </tr>
+                        <tr>
+                            <th>Dedução</th>
+                            <td>{{deducao}}</td>
+                        </tr>
+                        <tr>
+                            <th>Imposto de Renda</th>
+                            <td>{{impostoRenda}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <button class="button" onclick="window.history.back()">Voltar</button>
+        </div>
+    </div>
+</body>
+</html>
