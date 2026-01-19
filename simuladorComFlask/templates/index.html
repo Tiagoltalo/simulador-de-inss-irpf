@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.html') }}">
-    <title>Simulador de INSS e IRPF</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"/>
+  <title>Simulador de INSS e IRPF</title>
 </head>
 <body>
-    <div class="container">
-        <div class="caixa">
-            
-        </div>
+  <div class="container">
+    <h1>Simulador de INSS e IRPF</h1>
+
+    <div class="buttons">
+      <button onclick="telaINSS()">INSS</button>
+      <button onclick="telaIRPF()">IRPF</button>
     </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 </html>
