@@ -39,4 +39,11 @@ function verificarModalidades() {
                                     <option value="">Selecione</option>
                                 </select>`
     }
+
+    else {
+        selectModalidade.innerHTML = `<label for="modalidades">Modalidades</label>
+                                    <select id="modalidades" name="modalidades">
+                                        <option value="">Selecione</option>
+                                    </select>`
+    }
 }

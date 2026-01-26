@@ -7,26 +7,22 @@ app.config['SECRET_KEY'] = 'SENHA'
 def home():
     return render_template("index.html")
 
-@app.route('/formulario', methods=['POST', 'GET'])
+@app.route('/formulario')
 def formulario():
-    if request.method == 'POST':
-        data = {
+    return render_template("formulario.html")
+
+@app.route('/resultado', methods=["POST"])
+def resultado():
+    data = {
             "salario": float(request.form["salario"]),
             "segurado": request.form["segurado"],
             "dependentes": int(request.form["dependentes"]),
             "pensao": float(request.form["pensao"]),
-            "modalidade": request.form["modalidade"]
+            "modalidade": request.form["modalidades"]
         }
-
-    return render_template("formulario.html")
-
-@app.route('/resultado')
-def resultado():
-    data = session.get('resultado')
-
-    if not data:
-        return redirect(url_for('formulario'))
-
+    
+    print(data)
+    
     return render_template("resultado.html")
 
 if __name__ == '__main__':
