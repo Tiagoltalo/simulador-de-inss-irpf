@@ -98,8 +98,9 @@ def calcularINSS(dados):
                 if contribuicaoDoINSS > 1695.11:
                         contribuicaoDoINSS = 1695.11
 
-    # O desconto legal é dado pela soma da contribuição do INSS, da pensão e da dedução total dos dependentes
+    # O desconto legal é dado pela soma da contribuição do INSS, da pensão e da dedução total dos dependente
     descontoTotal = contribuicaoDoINSS + pensao + deducaoTotalDosDependente
+
     
     resultado = {
         "baseDeCalculo": round(salario, 2),

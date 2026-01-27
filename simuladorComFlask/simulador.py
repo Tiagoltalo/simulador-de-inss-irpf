@@ -21,7 +21,7 @@ def resultadoINSS():
             "segurado": request.form["segurado"],
             "dependentes": int(request.form["dependentes"]),
             "pensao": float(request.form["pensao"]),
-            "modalidade": request.form["modalidades"],
+            "modalidade": request.form["modalidade"],
         }
     
     resultado = calcularINSS(dados)
