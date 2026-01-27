@@ -1,4 +1,6 @@
+# Cache do Python
 __pycache__/
+
+# Ambientes Virtuais
 env/
 venv/
-__init__.py
